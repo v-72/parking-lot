@@ -1,0 +1,24 @@
+{
+  "name": "parking-lot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v-72/parking-lot.git"
+  },
+  "author": "vinayhegde@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v-72/parking-lot/issues"
+  },
+  "homepage": "https://github.com/v-72/parking-lot#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sequelize": "^6.3.5"
+  }
+}
