@@ -58,3 +58,8 @@
     unpark vehicle
 
     Admin report api
+
+
+# How to run app
+    docker-compose build
+    docker-compose up
