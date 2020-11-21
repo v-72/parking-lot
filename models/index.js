@@ -4,7 +4,6 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
-  operatorsAliases: false,
 
   pool: {
     max: dbConfig.pool.max,
@@ -20,7 +19,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.User = require("./User.js")(sequelize, Sequelize);
-db.Role = require("./Role.js")(sequelize, Sequelize);
-this.User.belongsTo(this.Role);
+// db.Role = require("./Role.js")(sequelize, Sequelize);
+// this.User.belongsTo(this.Role);
 
 module.exports = db;
