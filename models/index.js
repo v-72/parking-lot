@@ -19,7 +19,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.User = require("./User.js")(sequelize, Sequelize);
-// db.Role = require("./Role.js")(sequelize, Sequelize);
-// this.User.belongsTo(this.Role);
+db.Role = require("./Role.js")(sequelize, Sequelize);
+db.User.belongsTo(db.Role);
 
 module.exports = db;
