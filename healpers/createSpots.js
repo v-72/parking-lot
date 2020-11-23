@@ -1,16 +1,16 @@
 const models = require("../models");
 
 async function createLots(numLots,id){
-    const parkingLots = [...Array(numLots).keys()].map((i)=>{
-        return models.db.ParkingLot.create({
-            parkingAreaId:id,
+    const parkingSpots = [...Array(numLots).keys()].map((i)=>{
+        return models.db.ParkingSpot.create({
+            parkingLotId:id,
             lotNumber: i+1,
             underMaintanence: false
         })
     })
     try{
-        const lots = await Promise.all(parkingLots);
-        console.log(lots);
+        const spots = await Promise.all(parkingSpots);
+        console.log(spots);
         return;
     }catch(err){
         console.error(err);

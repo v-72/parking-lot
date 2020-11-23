@@ -1,9 +1,9 @@
-const createParkingArea = require("./parkingArea/createParkingArea");
 const createParkingLot = require("./parkingLot/createParkingLot");
-const updateParkingLot = require("./parkingLot/updateParkingLot");
+const createParkingSpot = require("./parkingSpot/createParkingSpot");
+const updateParkingSpot = require("./parkingSpot/updateParkingSpot");
 
 module.exports = {
-    createParkingArea,
     createParkingLot,
-    updateParkingLot
+    createParkingSpot,
+    updateParkingSpot
 }

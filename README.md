@@ -30,7 +30,7 @@
 3. Each parking area contains multiple slots
     - properties of parking slot
     - slotNumber
-    - parkingAreaId
+    - parkingLotId
     - underMaintence: Boolean
     - ...
 
@@ -38,7 +38,7 @@
 
     - records of parking / unparking of vehicles
     - id
-    - parkingAreaId
+    - parkingLotId
     - parkingSlotId 
     - parkingTime
     - unparkingTime

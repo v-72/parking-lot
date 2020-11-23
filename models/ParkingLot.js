@@ -1,10 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
     const ParkingLot = sequelize.define("parkinglot", {
-        lotNumber:{
-            type: Sequelize.INTEGER
+        name:{
+            type: Sequelize.STRING
         },
-        underMaintanence:{
-            type: Sequelize.BOOLEAN
+        numLots:{
+            type: Sequelize.INTEGER
         },
         createdAt: { 
             type: Sequelize.DATE, 
@@ -13,6 +13,13 @@ module.exports = (sequelize, Sequelize) => {
         updatedAt: { 
             type: Sequelize.DATE
         }
+    });
+
+    ParkingLot.addHook('afterCreate', async(parkingLot, options) => {
+        const createSpots = require("../healpers/createSpots");
+        const numLots = parkingLot.numLots;
+        await createSpots(numLots,parkingLot.id);  
+        return parkingLot;
     });
 
     return ParkingLot;

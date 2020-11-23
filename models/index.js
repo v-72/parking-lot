@@ -28,13 +28,13 @@ db.sequelize = sequelize;
 
 db.User = require("./User.js")(sequelize, Sequelize);
 db.Role = require("./Role.js")(sequelize, Sequelize);
-db.ParkingArea = require("./ParkingArea.js")(sequelize, Sequelize);
 db.ParkingLot = require("./ParkingLot.js")(sequelize, Sequelize);
+db.ParkingSpot = require("./ParkingSpot.js")(sequelize, Sequelize);
 
 //Relations
 db.User.belongsTo(db.Role);
-db.ParkingArea.belongsTo(db.User);
-db.ParkingLot.belongsTo(db.ParkingArea,{foreignKey: 'parkingAreaId'});
+db.ParkingLot.belongsTo(db.User);
+db.ParkingSpot.belongsTo(db.ParkingLot,{foreignKey: 'parkingLotId'});
 
 module.exports = {
   db,
