@@ -6,10 +6,8 @@ async function createParkingArea(request){
         const isAdmin = await checkIsAdmin(request.userId);
         if(!isAdmin)
             throw new Error("You are not authorized to create parking area");
-        console.log(isAdmin);
         const parkingArea = await models.db.ParkingArea.create(request);
-        console.log(parkingArea)
-        return {};
+        return parkingArea;
     }catch(err){
         console.error("Error in creating parking area",err);
         throw new Error(err);
