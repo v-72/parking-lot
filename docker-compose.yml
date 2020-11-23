@@ -1,19 +1,6 @@
 version: "3.3"
 
 services:
-  api:
-    build: .
-    environment:
-      PORT: 9001
-      DB_HOST: db
-      DB_USER: root
-      DB_PASS: root
-      DB_NAME: test_db
-    ports:
-      - "9001:9001"
-    networks:
-      - mynet
-
   db:
     image: mysql
     restart: always
@@ -26,7 +13,20 @@ services:
       - $HOME/Documents/MySQL/parking.sql:/parking.sql
 
     networks:
-      - mynet
+      - net
+      
+  api:
+    build: .
+    environment:
+      PORT: 9001
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: root
+      DB_NAME: test_db
+    ports:
+      - "9001:9001"
+    networks:
+      - net
 
 networks:
-  mynet:
+  net:

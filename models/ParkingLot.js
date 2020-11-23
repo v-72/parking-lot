@@ -1,8 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
-    const Role = sequelize.define("roles", {
-        name: {
-            type: Sequelize.ENUM,
-            values: ['user', 'admin','superAdmin']
+    const ParkingLot = sequelize.define("parkinglot", {
+        lotNumber:{
+            type: Sequelize.INTEGER
+        },
+        underMaintanence:{
+            type: Sequelize.BOOLEAN
         },
         createdAt: { 
             type: Sequelize.DATE, 
@@ -12,5 +14,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.DATE
         }
     });
-    return Role;
+
+    return ParkingLot;
 };
