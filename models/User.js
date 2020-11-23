@@ -14,9 +14,16 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             unique: true
         },
-        passwort: {
+        password: {
             type: Sequelize.STRING
-        }
+        },
+        createdAt: { 
+            type: Sequelize.DATE, 
+            defaultValue: Sequelize.NOW 
+        },
+        updatedAt: { 
+            type: Sequelize.DATE
+        },
     });
 
     return User;
