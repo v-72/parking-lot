@@ -2,7 +2,8 @@
  
 # Initial Thought
 1. Users can be diffrentated by their role
-   +-----------+--------------+------+-----+---------+----------------+
+```sh
++-----------+--------------+------+-----+---------+----------------+
 | Field     | Type         | Null | Key | Default | Extra          |
 +-----------+--------------+------+-----+---------+----------------+
 | id        | int          | NO   | PRI | NULL    | auto_increment |
@@ -14,7 +15,7 @@
 | updatedAt | datetime     | YES  |     | NULL    |                |
 | roleId    | int          | YES  | MUL | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
-
+```sh
     - Roles:
     1. Admin
     2. User
