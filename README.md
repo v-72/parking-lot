@@ -81,7 +81,7 @@
     
     
 # APIS:
-    create-parking-lot // create parking spot with multiple parking spots
+    ###create-parking-lot // create parking spot with multiple parking spots
     
     curl --location --request POST 'http://localhost:9001/api/v1/parking-lots' \
         --header 'Content-Type: application/json' \
@@ -92,7 +92,7 @@
         }'
 
     
-    park-vehicle // park vehicle into parking spot
+    ####park-vehicle // park vehicle into parking spot
 
     curl --location --request POST 'http://localhost:9001/api/v1/parking-lots/1/park' \
         --header 'Content-Type: application/json' \
@@ -100,7 +100,7 @@
             "vehicleNo": "KA01HH1013"
         }'
 
-    unpark-vehicle // unpark vehicle from parking spot
+    ####unpark-vehicle // unpark vehicle from parking spot
 
     curl --location --request PUT 'http://localhost:9001/api/v1/parking-lots/unpark' \
         --header 'Content-Type: application/json' \
@@ -109,7 +109,7 @@
             "parkingLotId": 1
         }'
 
-    update-parking-spot  // put parking spot under maintanance 
+    ###update-parking-spot  // put parking spot under maintanance 
 
     curl --location --request PUT 'http://localhost:9001/api/v1/parking-spots/1' \
         --header 'Content-Type: application/json' \
@@ -117,10 +117,11 @@
             "underMaintanence": true,
             "userId": 1
         }'  
-    get-parkinglot-details // get current status of parking lot
+    
+    ###get-parkinglot-details // get current status of parking lot
         curl --location --request GET 'http://localhost:9001/api/v1/parking-lots/1'
 
-    get-activities //get consolidated report
+    ###get-activities //get consolidated report
 
     curl --location --request GET 'http://localhost:9001/api/v1/parking-activities'
 
