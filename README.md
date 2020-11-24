@@ -27,7 +27,7 @@
 
     - lattitude, longitude can be used to find nearest parking area based on user's current location
 
-3. Each parking area contains multiple slots
+3. Each parking lot contains multiple spots
     - properties of parking slot
     - slotNumber
     - parkingLotId
@@ -46,20 +46,58 @@
     - vehicleType // May not be needed in intial release
     - vehicleNo // May not be needed in intial release
 # APIS:
+    create-parking-lot // create parking spot with multiple parking spots
+    
+    curl --location --request POST 'http://localhost:9001/api/v1/parking-lots' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{
+            "name": "parking area 1",
+            "numLots": 2,
+            "userId": 1
+        }'
 
-    Parking area creation
-    Parking area updation
-    Parking slot creation
-    Parking slot updation
+    
+    park-vehicle // park vehicle into parking spot
 
+    curl --location --request POST 'http://localhost:9001/api/v1/parking-lots/1/park' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{
+            "vehicleNo": "KA01HH1013"
+        }'
 
-    Get nearby parking area
-    park vehicle
-    unpark vehicle
+    unpark-vehicle // unpark vehicle from parking spot
 
-    Admin report api
+    curl --location --request PUT 'http://localhost:9001/api/v1/parking-lots/unpark' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{
+            "vehicleNo": "KA01HH1013",
+            "parkingLotId": 1
+        }'
 
+    update-parking-spot  // put parking spot under maintanance 
+
+    curl --location --request PUT 'http://localhost:9001/api/v1/parking-spots/1' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{
+            "underMaintanence": true,
+            "userId": 1
+        }'  
+    get-parkinglot-details // get current status of parking lot
+        curl --location --request GET 'http://localhost:9001/api/v1/parking-lots/1'
+
+    get-activities //get consolidated report
+
+    curl --location --request GET 'http://localhost:9001/api/v1/parking-activities'
 
 # How to run app
     docker-compose build
     docker-compose up
+
+
+# Things missing
+    * API authorization
+    * API Request validation
+        - define json schema for each request 
+        - validate incoming request aginest schema
+    *  Query support for parking-activities api (time range, parking lot, type of vehicle ect)
+    * Support to different type of vehicle (Treating all vehicle as medium sized vehicle)
