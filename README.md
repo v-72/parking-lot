@@ -128,6 +128,7 @@
 # How to run app
     docker-compose build
     docker-compose up
+    npm run seed //Only for first time
 
 
 # Things missing

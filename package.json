@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx sequelize db:seed:all && node app.js"
+    "start": "node app.js",
+    "seed": "npx sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
