@@ -2,13 +2,18 @@
  
 # Initial Thought
 1. Users can be diffrentated by their role
-    - properties of User:
-    - id
-    - name
-    - mobile
-    - email
-    - password
-    - ... profile
+   +-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int          | NO   | PRI | NULL    | auto_increment |
+| name      | varchar(255) | NO   |     | NULL    |                |
+| email     | varchar(255) | NO   | UNI | NULL    |                |
+| mobile    | varchar(255) | NO   | UNI | NULL    |                |
+| password  | varchar(255) | YES  |     | NULL    |                |
+| createdAt | datetime     | YES  |     | NULL    |                |
+| updatedAt | datetime     | YES  |     | NULL    |                |
+| roleId    | int          | YES  | MUL | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
 
     - Roles:
     1. Admin
