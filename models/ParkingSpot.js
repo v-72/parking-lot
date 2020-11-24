@@ -4,7 +4,12 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER
         },
         underMaintanence:{
-            type: Sequelize.BOOLEAN
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
+        },
+        occupied: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
         },
         createdAt: { 
             type: Sequelize.DATE, 
