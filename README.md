@@ -140,5 +140,5 @@
         - validate incoming request aginest schema
     *  Query support for parking-activities api (time range, parking lot, type of vehicle ect)
     * Support to different type of vehicle (Treating all vehicle as medium sized vehicle)
-
+    * Few edge conditions
     * common function for responses.
