@@ -9,7 +9,7 @@ router.put('/:id', async (req, res) => {
         const {dataValues} = await updateParkingSpot(request, req.params.id);
         res.status(201).send({ 
             success: true, 
-            data: {...dataValues }
+            data: "Spot updated successfully"
         });
     } catch (err) {
         console.error("Error in creating parking area", err);

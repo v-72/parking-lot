@@ -130,6 +130,8 @@
     docker-compose up
     npm run seed //Only for first time
 
+# Postman collection
+    prking-lot.postman_collection.json
 
 # Things missing
     * API authorization
@@ -138,3 +140,5 @@
         - validate incoming request aginest schema
     *  Query support for parking-activities api (time range, parking lot, type of vehicle ect)
     * Support to different type of vehicle (Treating all vehicle as medium sized vehicle)
+
+    * common function for responses.
