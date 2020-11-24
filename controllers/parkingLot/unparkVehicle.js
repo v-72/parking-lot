@@ -29,6 +29,7 @@ async function updateParkingActivity(activity) {
         const unpark = await models.db.ParkingActivity.update({
             exitTime: currTIme,
             amount,
+            hours
         }, { where: { id: activity.id } });
         const spot = await models.db.ParkingSpot.update({
             occupied: false

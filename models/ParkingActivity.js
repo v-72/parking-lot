@@ -11,6 +11,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             defaultValue: 0
         },
+        hours:{
+            type: Sequelize.INTEGER,
+            defaultValue: 1
+        },
         vehicleType:{
             type: Sequelize.ENUM, // If we are charging diffrent amount to diffrent vehicle this is useful
             values: ['S', 'M','L','XL'], //hense setting this to M

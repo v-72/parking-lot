@@ -4,7 +4,9 @@ const express = require('express'),
 const {
     createParkingLot,
     parkVehicle,
-    unparkVehicle} = require('../controllers');
+    unparkVehicle,
+    getLotDetails
+} = require('../controllers');
 
 router.post('/', async (req, res) => {
     try {
@@ -13,6 +15,22 @@ router.post('/', async (req, res) => {
         res.status(201).send({ 
             success: true, 
             data: {...dataValues }
+        });
+    } catch (err) {
+        console.error("Error in creating parking area", err);
+        res.status(500).send({
+            success: false,
+            error: err.message 
+        });
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const result = await getLotDetails(req.params.id);
+        res.status(200).send({ 
+            success: true, 
+            data: result
         });
     } catch (err) {
         console.error("Error in creating parking area", err);

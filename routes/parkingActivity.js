@@ -1,15 +1,15 @@
 const express = require('express'),
     router = express.Router();
 
-const {updateParkingSpot, createParkingSpot} = require('../controllers');
+const {getParkingActivity} = require('../controllers');
 
-router.put('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const request = req.body;
-        const {dataValues} = await updateParkingSpot(request, req.params.id);
-        res.status(201).send({ 
+        const request = req.query;
+        const result = await getParkingActivity(request);
+        res.status(200).send({ 
             success: true, 
-            data: {...dataValues }
+            data: result
         });
     } catch (err) {
         console.error("Error in creating parking area", err);
