@@ -15,42 +15,71 @@
 | updatedAt | datetime     | YES  |     | NULL    |                |
 | roleId    | int          | YES  | MUL | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
-```sh
+```
     - Roles:
-    1. Admin
-    2. User
-
+    ```sh
++-----------+-----------------------------------+------+-----+---------+----------------+
+| Field     | Type                              | Null | Key | Default | Extra          |
++-----------+-----------------------------------+------+-----+---------+----------------+
+| id        | int                               | NO   | PRI | NULL    | auto_increment |
+| name      | enum('user','admin','superAdmin') | YES  |     | NULL    |                |
+| createdAt | datetime                          | YES  |     | NULL    |                |
+| updatedAt | datetime                          | YES  |     | NULL    |                |
++-----------+-----------------------------------+------+-----+---------+----------------+
+    ```
     - for simplicty initially can avoide user crud apis, users can be created from seed.
 
-2. Admin can create multiple parking area.
-    - properties of parking area
-    - id
-    - name
-    - userId (Admin who owns the parking area)
-    - lattitude
-    - longitude  
-    - ... timestamps
+2. Admin can create multiple parking lot.
+    ```sh
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int          | NO   | PRI | NULL    | auto_increment |
+| name      | varchar(255) | YES  |     | NULL    |                |
+| numLots   | int          | YES  |     | NULL    |                |
+| createdAt | datetime     | YES  |     | NULL    |                |
+| updatedAt | datetime     | YES  |     | NULL    |                |
+| userId    | int          | YES  | MUL | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+    ```
 
     - lattitude, longitude can be used to find nearest parking area based on user's current location
 
 3. Each parking lot contains multiple spots
-    - properties of parking slot
-    - slotNumber
-    - parkingLotId
-    - underMaintence: Boolean
-    - ...
+    ```sh
++------------------+------------+------+-----+---------+----------------+
+| Field            | Type       | Null | Key | Default | Extra          |
++------------------+------------+------+-----+---------+----------------+
+| id               | int        | NO   | PRI | NULL    | auto_increment |
+| lotNumber        | int        | YES  |     | NULL    |                |
+| underMaintanence | tinyint(1) | YES  |     | 0       |                |
+| occupied         | tinyint(1) | YES  |     | 0       |                |
+| createdAt        | datetime   | YES  |     | NULL    |                |
+| updatedAt        | datetime   | YES  |     | NULL    |                |
+| parkingLotId     | int        | YES  | MUL | NULL    |                |
++------------------+------------+------+-----+---------+----------------+
+    ```
 
 4. Parking Activity 
-
-    - records of parking / unparking of vehicles
-    - id
-    - parkingLotId
-    - parkingSlotId 
-    - parkingTime
-    - unparkingTime
-    - amount
-    - vehicleType // May not be needed in intial release
-    - vehicleNo // May not be needed in intial release
+```sh
++---------------+------------------------+------+-----+---------+----------------+
+| Field         | Type                   | Null | Key | Default | Extra          |
++---------------+------------------------+------+-----+---------+----------------+
+| id            | int                    | NO   | PRI | NULL    | auto_increment |
+| entryTime     | datetime               | YES  |     | NULL    |                |
+| exitTime      | datetime               | YES  |     | NULL    |                |
+| amount        | int                    | YES  |     | 0       |                |
+| hours         | int                    | YES  |     | 1       |                |
+| vehicleType   | enum('S','M','L','XL') | YES  |     | M       |                |
+| vehicleNo     | varchar(255)           | NO   |     | NULL    |                |
+| createdAt     | datetime               | YES  |     | NULL    |                |
+| updatedAt     | datetime               | YES  |     | NULL    |                |
+| parkingSpotId | int                    | YES  | MUL | NULL    |                |
+| parkingLotId  | int                    | YES  | MUL | NULL    |                |
++---------------+------------------------+------+-----+---------+----------------+
+```
+    
+    
 # APIS:
     create-parking-lot // create parking spot with multiple parking spots
     
