@@ -5,5 +5,5 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-EXPOSE 9001 3306
+EXPOSE 9001
 CMD [ "node", "app.js" ]

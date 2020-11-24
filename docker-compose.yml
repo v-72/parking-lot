@@ -17,6 +17,8 @@ services:
       
   api:
     build: .
+    depends_on:
+      - db
     environment:
       PORT: 9001
       DB_HOST: db
