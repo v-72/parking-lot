@@ -62,7 +62,7 @@ router.put('/unpark', async (req, res) => {
     try {
         const request = req.body;
         const dataValues = await unparkVehicle(request);
-        res.status(201).send({ 
+        res.status(200).send({ 
             success: true, 
             data: {...dataValues }
         });

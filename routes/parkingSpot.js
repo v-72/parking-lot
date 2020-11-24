@@ -7,7 +7,7 @@ router.put('/:id', async (req, res) => {
     try {
         const request = req.body;
         const {dataValues} = await updateParkingSpot(request, req.params.id);
-        res.status(201).send({ 
+        res.status(200).send({ 
             success: true, 
             data: "Spot updated successfully"
         });

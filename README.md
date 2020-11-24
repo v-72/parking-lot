@@ -142,3 +142,4 @@
     * Support to different type of vehicle (Treating all vehicle as medium sized vehicle)
     * Few edge conditions
     * common function for responses.
+    * logs written to console istad of file stream
