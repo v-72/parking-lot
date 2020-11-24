@@ -17,7 +17,7 @@
 +-----------+--------------+------+-----+---------+----------------+
 ```
     - Roles:
-    ```sh
+```sh
 +-----------+-----------------------------------+------+-----+---------+----------------+
 | Field     | Type                              | Null | Key | Default | Extra          |
 +-----------+-----------------------------------+------+-----+---------+----------------+
@@ -26,11 +26,11 @@
 | createdAt | datetime                          | YES  |     | NULL    |                |
 | updatedAt | datetime                          | YES  |     | NULL    |                |
 +-----------+-----------------------------------+------+-----+---------+----------------+
-    ```
+```
     - for simplicty initially can avoide user crud apis, users can be created from seed.
 
 2. Admin can create multiple parking lot.
-    ```sh
+```sh
 +-----------+--------------+------+-----+---------+----------------+
 | Field     | Type         | Null | Key | Default | Extra          |
 +-----------+--------------+------+-----+---------+----------------+
@@ -41,12 +41,12 @@
 | updatedAt | datetime     | YES  |     | NULL    |                |
 | userId    | int          | YES  | MUL | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
-    ```
+```
 
     - lattitude, longitude can be used to find nearest parking area based on user's current location
 
 3. Each parking lot contains multiple spots
-    ```sh
+```sh
 +------------------+------------+------+-----+---------+----------------+
 | Field            | Type       | Null | Key | Default | Extra          |
 +------------------+------------+------+-----+---------+----------------+
@@ -58,7 +58,7 @@
 | updatedAt        | datetime   | YES  |     | NULL    |                |
 | parkingLotId     | int        | YES  | MUL | NULL    |                |
 +------------------+------------+------+-----+---------+----------------+
-    ```
+```
 
 4. Parking Activity 
 ```sh
